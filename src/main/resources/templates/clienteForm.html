@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Cadastro de Cliente</title>
+	<!-- Link para o Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<a class="navbar-brand" th:href="@{/clientes}">Listagem de Clientes</a>
+	<a class="navbar-brand " th:href="@{/empresas}">Listagem de Empresas</a>
+</nav>
+
+<div class="container mt-3">
+	<h2>Cadastro de Cliente</h2>
+	<form th:action="@{/clientes/adicionar}" th:object="${cliente}" method="post">
+		<div class="form-group">
+			<label for="nome">Nome:</label>
+			<input type="text" id="nome" class="form-control" th:field="*{nome}" />
+		</div>
+		<div class="form-group">
+			<label for="descricao">Descrição:</label>
+			<input type="text" id="descricao" class="form-control" th:field="*{descricao}" />
+		</div>
+		<div class="form-group">
+			<label for="cpfOuCnpj">CPF ou CNPJ:</label>
+			<input type="text" id="cpfOuCnpj" class="form-control" th:field="*{cpfOuCnpj}" />
+		</div>
+		<div class="form-group">
+			<label for="email">E-mail:</label>
+			<input type="text" id="email" class="form-control" th:field="*{email}" />
+		</div>
+		<div class="form-group">
+			<label for="imgUrl">URL da Imagem:</label>
+			<input type="text" id="imgUrl" class="form-control" th:field="*{imgUrl}" />
+		</div>
+		<button type="submit" class="btn btn-primary">Salvar</button>
+	</form>
+</div>
+</body>
+
+</html>
