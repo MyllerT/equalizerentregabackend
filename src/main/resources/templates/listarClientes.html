@@ -7,56 +7,8 @@
     <!-- Link para o Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
 
-        .navbar {
-            background-color: #343a40;
-        }
 
-        .navbar-brand {
-            color: #ffffff;
-        }
-
-        .container {
-            background-color: #ffffff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        h2 {
-            color: #007bff;
-        }
-
-        .btn-primary {
-            background-color: #ff6600; /* Orange color */
-            border-color: #ff6600;
-        }
-
-        .btn-primary:hover {
-            background-color: #cc5200; /* Darker shade of orange on hover */
-            border-color: #cc5200;
-        }
-
-        .table {
-            background-color: #ffffff;
-        }
-
-        .thead-dark th {
-            background-color: #343a40;
-            color: #ffffff;
-        }
-
-        .btn-info,
-        .btn-danger {
-            margin-right: 5px;
-        }
-
-    </style>
 </head>
 
 <body>
@@ -67,7 +19,6 @@
 
 <div class="container mt-3">
     <h2>Lista de Clientes</h2>
-    <a class="btn btn-primary mb-2" th:href="@{/clientes/novo}">Adicionar Cliente</a>
     <table class="table">
         <thead class="thead-dark">
         <tr>

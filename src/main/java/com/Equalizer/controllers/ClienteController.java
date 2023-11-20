@@ -27,11 +27,13 @@ public class ClienteController {
 		return "listarClientes";
 	}
 
+
 	@GetMapping("/novo")
 	public String exibirFormularioAdicao(Model model) {
 		model.addAttribute("cliente", new Cliente());
 		return "clienteForm";
 	}
+
 
 	@PostMapping("/adicionar")
 	public String adicionarCliente(@ModelAttribute("cliente") Cliente cliente) {

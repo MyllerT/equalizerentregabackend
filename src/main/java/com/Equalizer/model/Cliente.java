@@ -28,7 +28,7 @@ public class Cliente {
     @ManyToMany
     private Set<Empresa> empresas = new HashSet<>();
 
-    // construtores
+
 
     public Long getId() {
         return id;

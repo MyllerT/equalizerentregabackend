@@ -11,13 +11,13 @@
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" th:href="@{/clientes}">Listagem de Clientes</a>
-    <a class="navbar-brand" th:href="@{/empresas}">Listagem de Empresas</a>
+    <a class="navbar-brand" th:href="@{/clientes}"> Clientes</a>
+    <a class="navbar-brand" th:href="@{/empresas}"> Empresas</a>
 </nav>
 
 <div class="container mt-3">
     <h2>Cadastro de Empresa</h2>
-    <form th:action="@{/empresas/save}" th:object="${empresa}" method="post">
+    <form th:action="@{/empresas/adicionar}" th:object="${empresa}" method="post">
 
         <div class="form-group">
             <label for="nome">Nome:</label>

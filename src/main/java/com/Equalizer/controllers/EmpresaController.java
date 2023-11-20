@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-
 @Controller
 @RequestMapping("/empresas")
 public class EmpresaController {
@@ -34,7 +33,7 @@ public class EmpresaController {
     }
 
     @GetMapping("/novo")
-    public String showForm(Model model) {
+    public String exibirFormularioAdicao(Model model) {
         Empresa empresa = new Empresa();
         List<Cliente> clientes = clienteService.getAllClientes();
         model.addAttribute("empresa", empresa);
@@ -42,20 +41,14 @@ public class EmpresaController {
         return "empresaForm";
     }
 
-    @PostMapping("/save")
-    public String saveEmpresa(@ModelAttribute("empresa") Empresa empresa, @RequestParam Set<Long> clienteIds) {
-        Set<Cliente> clientes = clienteIds.stream()
-                .map(clienteService::getClienteById)
-                .collect(Collectors.toSet());
-
-        empresa.setClientes(clientes);
+    @PostMapping("/adicionar")
+    public String adicionarEmpresa(@ModelAttribute("empresa") Empresa empresa) {
         empresaService.saveEmpresa(empresa);
-
         return "redirect:/empresas";
     }
 
     @GetMapping("/editar/{id}")
-    public String showUpdateForm(@PathVariable("id") Long id, Model model) {
+    public String exibirFormularioEdicao(@PathVariable("id") Long id, Model model) {
         Empresa empresa = empresaService.getEmpresaById(id);
         List<Cliente> clientes = clienteService.getAllClientes();
         model.addAttribute("empresa", empresa);
@@ -64,13 +57,13 @@ public class EmpresaController {
     }
 
     @PostMapping("/editar/{id}")
-    public String updateEmpresa(@PathVariable("id") Long id, @ModelAttribute("empresa") Empresa empresa) {
+    public String atualizarEmpresa(@PathVariable("id") Long id, @ModelAttribute("empresa") Empresa empresa) {
         empresaService.updateEmpresa(id, empresa);
         return "redirect:/empresas";
     }
 
     @GetMapping("/deletar/{id}")
-    public String deleteEmpresa(@PathVariable Long id) {
+    public String deletarEmpresa(@PathVariable Long id) {
         empresaService.deleteEmpresa(id);
         return "redirect:/empresas";
     }
