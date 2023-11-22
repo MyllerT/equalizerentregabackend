@@ -8,6 +8,9 @@ import java.util.Set;
 @Entity
 @Table(name = "clientes")
 public class Cliente {
+    public String getFormattedString() {
+        return this.toString().replace("'", "");
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +30,19 @@ public class Cliente {
 
     @ManyToMany
     private Set<Empresa> empresas = new HashSet<>();
+    public Cliente() {
+
+
+    }
+
+    public Cliente(String nome, String descricao, String cpfOuCnpj, String email, String imgUrl) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.cpfOuCnpj = cpfOuCnpj;
+        this.email = email;
+        this.imgUrl = imgUrl;
+    }
+
 
 
 

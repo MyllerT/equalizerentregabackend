@@ -3,28 +3,30 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Clientes</title>
+    <title>Clientes Equalizer</title>
     <!-- Link para o Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-
+    <!-- Adicionei uma folha de estilo personalizada para personalizar ainda mais o design -->
+    <link rel="stylesheet" href="caminho/para/seu/estilo.css">
 </head>
 
-<body>
+<body style="background-color: #f8f9fa;">
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" th:href="@{/clientes}">Clientes</a>
+    <a class="navbar-brand" th:href="@{/clientes}">Clientes Equalizer</a>
     <a class="navbar-brand" th:href="@{/empresas}">Empresas</a>
 </nav>
 
 <div class="container mt-3">
-    <h2>Lista de Clientes</h2>
+    <h2 style="color: #007bff;">Clientes Equalizer</h2>
     <table class="table">
         <thead class="thead-dark">
         <tr>
             <th>ID</th>
             <th>Nome</th>
-            <th>Descrição</th>
+            <th>Email</th>
             <th>Ações</th>
         </tr>
         </thead>
@@ -32,9 +34,9 @@
         <tr th:each="cliente : ${clientes}">
             <td th:text="${cliente.id}"></td>
             <td th:text="${cliente.nome}"></td>
-            <td th:text="${cliente.descricao}"></td>
+            <td th:text="${cliente.email}"></td>
             <td>
-                <a class="btn btn-info btn-sm" th:href="@{/clientes/editar/{id}(id=${cliente.id})}">Editar</a>
+                <a class="btn btn-primary btn-sm" th:href="@{/clientes/editar/{id}(id=${cliente.id})}">Editar</a>
                 <a class="btn btn-danger btn-sm" th:href="@{/clientes/deletar/{id}(id=${cliente.id})}">Excluir</a>
             </td>
         </tr>

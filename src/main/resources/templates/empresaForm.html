@@ -11,8 +11,8 @@
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" th:href="@{/clientes}"> Clientes</a>
-    <a class="navbar-brand" th:href="@{/empresas}"> Empresas</a>
+    <a class="navbar-brand" th:href="@{/clientes}">Clientes</a>
+    <a class="navbar-brand" th:href="@{/empresas}">Empresas</a>
 </nav>
 
 <div class="container mt-3">
@@ -24,10 +24,23 @@
             <input type="text" id="nome" class="form-control" th:field="*{nome}" />
         </div>
 
-        <!-- Adicione outros campos conforme necessário -->
+        <div class="form-group">
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" class="form-control" th:field="*{descricao}"></textarea>
+        </div>
 
         <div class="form-group">
-            <label> Clientes:</label>
+            <label for="departamento">Departamento:</label>
+            <input type="text" id="departamento" class="form-control" th:field="*{departamento}" />
+        </div>
+
+        <div class="form-group">
+            <label for="quantidadeFuncionarios">Quantidade de Funcionários:</label>
+            <input type="number" id="quantidadeFuncionarios" class="form-control" th:field="*{quantidadeFuncionarios}" />
+        </div>
+
+        <div class="form-group">
+            <label>Clientes:</label>
             <div th:each="cliente : ${clientes}">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="cliente-${cliente.id}"

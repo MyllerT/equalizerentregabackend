@@ -25,7 +25,15 @@ public class Empresa {
 	@ManyToMany
 	private Set<Cliente> clientes = new HashSet<>();
 
-	// construtores
+	public Empresa() {
+	}
+
+	public Empresa(String nome, String descricao, String departamento, Integer quantidadeFuncionarios) {
+		this.nome = nome;
+		this.descricao = descricao;
+		this.departamento = departamento;
+		this.quantidadeFuncionarios = quantidadeFuncionarios;
+	}
 
 	public Long getId() {
 		return id;

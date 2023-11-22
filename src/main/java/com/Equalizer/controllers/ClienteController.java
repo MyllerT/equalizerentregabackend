@@ -48,7 +48,6 @@ public class ClienteController {
 			model.addAttribute("cliente", cliente);
 			return "editarCliente";
 		} catch (EntityNotFoundException e) {
-			// Tratar cliente não encontrado
 			return "redirect:/clientes";
 		}
 	}
@@ -59,7 +58,7 @@ public class ClienteController {
 			clienteService.updateCliente(id, cliente);
 			return "redirect:/clientes";
 		} catch (EntityNotFoundException e) {
-			// Tratar cliente não encontrado
+
 			return "redirect:/clientes";
 		}
 	}
@@ -70,7 +69,6 @@ public class ClienteController {
 			clienteService.deleteCliente(id);
 			return "redirect:/clientes";
 		} catch (EntityNotFoundException e) {
-			// Tratar cliente não encontrado
 			return "redirect:/clientes";
 		}
 	}
